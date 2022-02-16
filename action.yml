@@ -1,0 +1,30 @@
+name: 'Mage Marketplace Package Converter'
+description: 'CustomGento Mage Marketplace Package Converter Action is a GitHub Action, which creates Marketplace-compatible packages from GitHub releases.'
+inputs:
+  access_token:
+    description: 'Your personal access token.'
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - uses: actions/checkout@v2
+    - name: Update composer.json
+      run: >
+           sed -i 's#"src/registration.php"#"registration.php"#g' composer.json;
+           sed -i 's#": "src"#": ""#g' composer.json;
+      shell: bash
+    - name: Convert Package
+      run: >
+           mv src/* .;
+           rmdir src;
+           rm -rf .git;
+           zip -rq marketplace-package.zip .;
+      shell: bash          
+    - name: Upload Marketplace Package To Release
+      uses: svenstaro/upload-release-action@v2
+      with:
+        repo_token: ${{ inputs.access_token }}
+        file: marketplace-package.zip
+        asset_name: $tag-marketplace.zip
+        tag: ${{ github.ref }}
+        overwrite: true

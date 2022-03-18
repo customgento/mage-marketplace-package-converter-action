@@ -1,6 +1,6 @@
 # CustomGento Mage Marketplace Package Converter Action
 
-CustomGento Mage Marketplace Package Converter Action is a GitHub Action, which creates Marketplace-compatible packages from GitHub releases.
+CustomGento Mage Marketplace Package Converter Action creates Marketplace-compatible packages from GitHub releases.
 
 Usually, code in PHP repositories is split into two directories `src` and `tests`. Unfortunately, Magento Marketplace does not support this structure. It expects you to put all your extension code into the root directory. To ease your release process, this action takes care of the conversion, so that you can directly upload a package in the right format to Magento Marketplace.
 

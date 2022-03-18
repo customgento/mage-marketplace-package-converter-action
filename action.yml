@@ -1,5 +1,5 @@
 name: 'Mage Marketplace Package Converter'
-description: 'CustomGento Mage Marketplace Package Converter Action is a GitHub Action, which creates Marketplace-compatible packages from GitHub releases.'
+description: 'CustomGento Mage Marketplace Package Converter Action creates Marketplace-compatible packages from GitHub releases.'
 inputs:
   access_token:
     description: 'Your personal access token.'

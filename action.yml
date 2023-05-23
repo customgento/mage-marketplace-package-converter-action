@@ -11,7 +11,7 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Update composer.json
       run: >
            sed -i 's#"src/registration.php"#"registration.php"#g' composer.json;
